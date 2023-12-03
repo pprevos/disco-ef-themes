@@ -10,7 +10,7 @@ This frivolous package can also automatically change themes at a defined interva
 * Installation and configuration
 Download the =disco-ef-themes.el= file and store it in your preferred location. This ~use-package~ declaration loads the theme and starts the disco by changing themes every 10 seconds.
 
-You can change the interval with the ~disco-ef-themes-interval~ variable.
+You can change the interval with the ~disco-ef-themes-interval~ variable. Setting it to low might lock your Emacs. My [[https://github.com/pprevos/emacs-config][personal configuration]] sets it at 600 seconds.
 
 #+begin_src elisp :results none :tangle no
   (use-package disco-ef-themes
