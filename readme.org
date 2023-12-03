@@ -1,0 +1,29 @@
+#+title: Disco Ef Themes
+#+date: [2023-12-04 Mon]
+
+The [[https://protesilaos.com/emacs/ef-themes][Ef (εὖ/good) Themes]] package by Protesilaos Stavrou (Prot) provides colorful and legible themes.
+
+The package detects whether the current theme is a light or dark theme of the Ef variety and then picks a random light or dark theme.
+
+This frivolous package can also automatically change themes at a defined interval, creating a Ef Themes disco!
+
+* Installation and configuration
+Download the =disco-ef-themes.el= file and store it in your preferred location. This ~use-package~ declaration loads the theme and starts the disco by changing themes every 10 seconds.
+
+You can change the interval with the ~disco-ef-themes-interval~ variable.
+
+#+begin_src elisp :results none :tangle no
+  (use-package disco-ef-themes
+    :load-path "~/.config/emacs/" ;; Change as required
+    :custom
+    (disco-ef-themes-interval 10)
+    :bind
+    (("<f12>"   . disco-ef-themes-load-random)
+     ("M-<f12>" . disco-ef-themes)
+     ("C-<f12>" . disco-ef-themes-change-shade)))
+#+end_src
+
+** Key Bindings
+- =F12= changes themes manually
+- =C-F12= toggles between dark and light themes
+- =M-F12= activates the disco
