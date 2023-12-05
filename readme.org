@@ -3,18 +3,29 @@
 
 The [[https://protesilaos.com/emacs/ef-themes][Ef (εὖ/good) Themes]] package by Protesilaos Stavrou (Prot) provides colorful and legible themes.
 
-The package detects whether the current theme is a light or dark theme of the Ef variety and then picks a random light or dark theme.
+The ~diso-ef-themes~ package detects whether the active Ef theme is light or dark of the Ef variety and then picks a random light or dark theme. If the current theme is not a member of the Ef catalogue, then a random dark variety is loaded.
 
-This frivolous package can also automatically change themes at a defined interval, creating a Ef Themes disco!
+This frivolous package can also automatically change themes at a defined interval, creating an Ef Themes disco!
+
+There are three commands:
+- ~disco-ef-themes-load-random~: Load a random theme manually. Matches the shade of the active theme.
+- ~disco-ef-themes-change-shade~: Toggle between light and dark theme.
+- ~disco-ef-themes~: Activate the disco
+
+If you are hungry for more, then check out the [[https://elpa.gnu.org/packages/theme-buffet.html][theme-buffet]] by Bruno Boal and Protesilaos Stavrou.
 
 * Installation and configuration
-Download the =disco-ef-themes.el= file and store it in your preferred location. This ~use-package~ declaration loads the theme and starts the disco by changing themes every 10 seconds.
+Download the =disco-ef-themes.el= file and store it in your preferred location. This ~use-package~ declaration loads the theme and starts the disco by changing themes every 10 seconds. Alternatively use:
 
-You can change the interval with the ~disco-ef-themes-interval~ variable. Setting it to low might lock your Emacs. My [[https://github.com/pprevos/emacs-config][personal configuration]] sets it at 600 seconds.
+#+begin_src elisp
+  (package-vc-install "https://github.com/pprevos/disco-ef-themes")
+#+end_src
+
+You can change the interval with the ~disco-ef-themes-interval~ variable. Setting it to low might lock your Emacs. My [[https://github.com/pprevos/emacs-config][personal configuration]] sets it at 600 seconds, which adds some variety to my day.
 
 #+begin_src elisp :results none :tangle no
   (use-package disco-ef-themes
-    :load-path "~/.config/emacs/" ;; Change as required
+    :load-path "~/.config/emacs/" ;; Add and edit as required
     :custom
     (disco-ef-themes-interval 10)
     :bind
